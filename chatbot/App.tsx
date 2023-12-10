@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View, FlatList, TextInput, Button } from 'react-native';
 import React, { useState } from 'react';
 import axios from 'axios';
+import fs from 'fs';
 
 const App = () => {
-  const apiKey = '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';
+  const apiKey = fs.readFileSync('Key.txt', 'utf8');
   const apiUrl = 'https://api.openai.com/v1/engines/davinci/completions';
   const [data, setData] = useState<{ input: string; output: string; }[]>([]);
   const [input, setInput] = useState('');
